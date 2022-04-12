@@ -1,2 +1,12 @@
-<h1>Rates#new</h1>
-<p>Find me in app/views/rates/new.html.erb</p>
+<h1>New Comment</h1>
+
+<%= form_for @rate do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+
+    <%= f.label :comment %>
+    <%= f.text_field :comment, :required => true %>
+
+    <%= f.submit %>
+
+<% end %>

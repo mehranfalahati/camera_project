@@ -4,12 +4,12 @@ u2 = User.create :email => 'emma@ga.co', :password => 'chicken'
 puts "#{ User.count } users"
 
 Camera.destroy_all
-c1 = Camera.create :name => 'D5300'
-c2 = Camera.create :name => 'D7200'
+c1 = Camera.create :name => 'D5300', :brand => 'nikon'
+c2 = Camera.create :name => 'D7200', :brand => 'nikon'
 puts "#{ Camera.count } cameras"
 
 Rate.destroy_all
-r1 = Rate.create :name => 'Jack Emerson'
+r1 = Rate.create :name => 'Jack Emerson', :comment => 'hello'
 r2 = Rate.create :name => 'Emma Bridgstone'
 puts "#{ Rate.count } rates"
 

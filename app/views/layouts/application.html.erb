@@ -11,16 +11,21 @@
 
   <body>
     <nav>
-      <%= link_to 'HOME', root_path %>
+      <%= link_to 'Home', root_path %>
       <% if @current_user.present? %>
         <% if @current_user.admin? %>
           <%= link_to 'ALL USERS', users_path %>
         <% end %>
-        <%= link_to 'NEW CAMERA', new_camera_path %>
-        <%= link_to "SIGN OUT #{ @current_user.email }", login_path, :method => 'delete' %>
+        <%= link_to 'All Camera', '/cameras' %>
+        <%= link_to 'New Camera', new_camera_path %>
+        
+        <%= link_to 'All Rates', '/rates' %>
+        <%= link_to 'New Rate', new_rate_path %>
+        
+        <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
       <% else %>
-        <%= link_to 'SIGN UP', new_user_path %>
-        <%= link_to 'SIGN IN', login_path %>
+        <%= link_to 'Sign Up', new_user_path %>
+        <%= link_to 'Sign In', login_path %>
       <% end %>
     </nav>
 

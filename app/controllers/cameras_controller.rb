@@ -2,6 +2,7 @@ class CamerasController < ApplicationController
   before_action :check_for_login
 
   def index
+    @cameras = Camera.all
   end
 
   def new
@@ -15,9 +16,23 @@ class CamerasController < ApplicationController
   end
 
   def edit
+    @camera = Camera.find params[:id]
+  end
+
+  def update
+    camera = Camera.find params[:id]
+    camera.update camera_params
+    redirect_to camera
   end
 
   def show
+    @camera = Camera.find params[:id]
+  end
+
+  def destroy
+    camera = Camera.find params[:id]
+    camera.destroy
+    redirect_to camera
   end
 
   private

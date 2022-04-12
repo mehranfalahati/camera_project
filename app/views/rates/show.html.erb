@@ -1,2 +1,12 @@
-<h1>Rates#show</h1>
-<p>Find me in app/views/rates/show.html.erb</p>
+<h1><%= @rate.name.capitalize %></h1>
+
+<ul>
+    <li>Name: <%= @rate.name.capitalize %></li>
+    <li>Comment: <%= @rate.comment %></li>
+</ul>
+
+<div>
+    <%= link_to 'Edit', edit_rate_path %>
+    <%= link_to 'Delete', @rate, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+</div>
+

@@ -2,16 +2,16 @@
 
 <%= form_for @camera do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :placeholder => '5D', :required => true %>
 
     <%= f.label :brand %>
-    <%= f.text_field :brand %>
+    <%= f.text_field :brand, :placeholder => 'Nikon, Soney', :required => true %>
 
     <%= f.label :details %>
     <%= f.text_field :details %>
 
     <%= f.label :price %>
-    <%= f.text_field :price %>
+    <%= f.text_field :price, :required => true %>
 
     <%= f.label :image %>
     <%= f.text_field :image %>

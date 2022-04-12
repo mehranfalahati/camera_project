@@ -1,2 +1,21 @@
-<h1>Cameras#show</h1>
-<p>Find me in app/views/cameras/show.html.erb</p>
+<h1><%= @camera.name.capitalize %></h1>
+
+<%= image_tag @camera.image if @camera.image.present? %>
+    <ul>
+        <li>Name: <%= @camera.name.capitalize %></li>  
+        <li>Brand: <%= @camera.brand.capitalize %></li>  
+        <li>Details: <%= @camera.details %></li>
+        <li>Price: <%= @camera.price %></li>
+    </ul>
+
+<div>
+    <%= link_to 'Edit', edit_camera_path %>
+    <%= link_to 'Delete', @camera, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+</div>
+
+<% if @camera.rates.present? %>
+    <% @camera.rates.each do |rate|%>
+        <%= link_to rate.name, rate %>
+        <p><%= rate.comment %></p>
+    <% end %>
+<% end %>

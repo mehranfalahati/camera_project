@@ -1,2 +1,9 @@
 <h1>All Cameras</h1>
-<p>Find me in app/views/cameras/index.html.erb</p>
+
+<% @cameras.each do |camera| %>
+    <%= image_tag camera.image if camera.image.present? %>
+    <ul>
+        <li>Name: <%= link_to camera.name.capitalize, camera %></li>  
+        <li>Brand: <%= camera.brand.capitalize %></li>  
+    </ul>
+<% end %>
