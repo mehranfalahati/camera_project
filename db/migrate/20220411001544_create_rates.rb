@@ -4,6 +4,7 @@ class CreateRates < ActiveRecord::Migration[5.2]
       t.text :name
       t.text :comment
       t.integer :user_id
+      t.integer :camera_id
 
       t.timestamps
     end
