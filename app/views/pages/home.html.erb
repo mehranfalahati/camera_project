@@ -2,11 +2,10 @@
 
 <% if @current_user.present? %>
     <h2>Welcome <%= @current_user.email %></h2>
+    <p>
+        <% @random.each do |camera|%>
+            <%= camera.name %>
+            <%= cl_image_tag(camera.image) %>
+        <% end %>
+    </p>
 <% end %>
-<div>
-    <p>
-        Our last Cameras
-    </p>
-    <p>
-    </p>
-</div>
