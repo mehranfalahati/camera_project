@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= cloudinary_js_config %>
   </head>
 
   <body>
@@ -19,8 +20,7 @@
         <%= link_to 'All Camera', '/cameras' %>
         <%= link_to 'New Camera', new_camera_path %>
         
-        <%= link_to 'All Rates', '/rates' %>
-        <%= link_to 'New Rate', new_rate_path %>
+        <%= link_to 'All Reviews', '/rates' %>
         
         <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
       <% else %>

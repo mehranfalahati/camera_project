@@ -1,6 +1,6 @@
 <h1>New Camera To Sell</h1>
 
-<%= form_for @camera do |f| %>
+<%= form_for(@camera, :html => {:multipart => true}) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name, :placeholder => '5D', :required => true %>
 
@@ -8,13 +8,13 @@
     <%= f.text_field :brand, :placeholder => 'Nikon, Soney', :required => true %>
 
     <%= f.label :details %>
-    <%= f.text_field :details %>
+    <%= f.text_area :details %>
 
     <%= f.label :price %>
     <%= f.text_field :price, :required => true %>
 
     <%= f.label :image %>
-    <%= f.text_field :image %>
+    <%= f.cl_image_upload :image %>
 
     <%= f.submit %>
 

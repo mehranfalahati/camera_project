@@ -1,11 +1,11 @@
-<h1><%= @camera.name.capitalize %></h1>
+<h1><%= @camera.name %></h1>
 
-<%= image_tag @camera.image if @camera.image.present? %>
+<%= cl_image_tag(@camera.image) %>
     <ul>
-        <li>Name: <%= @camera.name.capitalize %></li>  
+        <li>Name: <%= @camera.name %></li>  
         <li>Brand: <%= @camera.brand.capitalize %></li>  
         <li>Details: <%= @camera.details %></li>
-        <li>Price: <%= @camera.price %></li>
+        <li>Price: <%= number_to_currency(@camera.price) %></li>
     </ul>
 
 <div>
@@ -13,9 +13,21 @@
     <%= link_to 'Delete', @camera, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
 </div>
 
+<div>
 <% if @camera.rates.present? %>
     <% @camera.rates.each do |rate|%>
         <%= link_to rate.name, rate %>
         <p><%= rate.comment %></p>
+        <%= link_to 'Delete', rate, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+
     <% end %>
 <% end %>
+</div>
+
+<div>
+<%= link_to 'New Comment', new_rate_path(@camera.id) %>
+</div>
+<div>
+<%= link_to 'Back', cameras_path %>
+</div>
+

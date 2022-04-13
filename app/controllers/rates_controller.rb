@@ -11,7 +11,9 @@ class RatesController < ApplicationController
   def create
     rate = Rate.create rate_params
     @current_user.rates << rate
-    redirect_to rate
+    Camera.find(params[:rate][:camera_id]).rates << rate
+    camera = Camera.find(params[:rate][:camera_id])
+    redirect_to camera_path(camera)
   end
 
   def edit
@@ -21,6 +23,8 @@ class RatesController < ApplicationController
   def update
     rate = Rate.find params[:id]
     rate.update rate_params
+    camera = Camera.find(params[:rate][:camera_id])
+    redirect_to camera_path(camera)
     redirect_to rate
   end
 
@@ -31,11 +35,12 @@ class RatesController < ApplicationController
   def destroy
     rate = Rate.find params[:id]
     rate.destroy
-    redirect_to rate
+    raise 'hell'
+    redirect_to cameras_path
   end
 
   private
   def rate_params
-    params.require(:rate).permit(:name, :comment)
+    params.require(:rate).permit(:name, :comment, :camera_id)
   end
 end

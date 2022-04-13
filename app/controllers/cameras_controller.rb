@@ -11,6 +11,11 @@ class CamerasController < ApplicationController
 
   def create
     camera = Camera.create camera_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      camera.image = req["public_id"]
+      camera.save
+    end
     @current_user.cameras << camera
     redirect_to camera
   end
@@ -21,7 +26,12 @@ class CamerasController < ApplicationController
 
   def update
     camera = Camera.find params[:id]
-    camera.update camera_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      camera.image = req["public_id"]
+    end
+    camera.update_attributes(camera_params)
+    camera.save
     redirect_to camera
   end
 
