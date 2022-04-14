@@ -9,8 +9,11 @@
     </ul>
 
 <div>
+<% if @current_user.id == @camera.user_id %>
     <%= link_to 'Edit', edit_camera_path %>
     <%= link_to 'Delete', @camera, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+    <% end %>
+
 </div>
 
 <div>
@@ -18,7 +21,11 @@
     <% @camera.rates.each do |rate|%>
         <%= link_to rate.name, rate %>
         <p><%= rate.comment %></p>
-        <%= link_to 'Delete', rate, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+        <p>Created at: <%= rate.created_at.strftime '%a %B %e, %Y %H:%M %P' %></p>
+
+        <% if @current_user.id == rate.user_id %>
+            <%= link_to 'Delete', rate, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+        <% end %>
 
     <% end %>
 <% end %>

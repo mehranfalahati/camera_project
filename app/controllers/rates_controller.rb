@@ -35,7 +35,6 @@ class RatesController < ApplicationController
   def destroy
     rate = Rate.find params[:id]
     rate.destroy
-    raise 'hell'
     redirect_to cameras_path
   end
 
