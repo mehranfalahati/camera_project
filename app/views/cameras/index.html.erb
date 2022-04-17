@@ -1,9 +1,13 @@
 <h1>All Cameras</h1>
 
-<% @cameras.each do |camera| %>
-    <%= cl_image_tag(camera.image) %>
-    <ul>
-        <li>Name: <%= link_to camera.name.capitalize, camera %></li>  
-        <li>Brand: <%= camera.brand.capitalize %></li>  
-    </ul>
-<% end %>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+        <% @cameras.each do |camera| %>
+        <%= cl_image_tag camera.image, :class => 'img' %>
+        <div class="card-body">
+            <h5 class="card-title">Name: <%= link_to camera.name.capitalize, camera %></h5>
+            <p class="card-text">Brand: <%= camera.brand.capitalize %></p>
+        </div>
+        <% end %>
+    </div>

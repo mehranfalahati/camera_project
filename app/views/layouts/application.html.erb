@@ -11,24 +11,47 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Home', root_path %>
-      <% if @current_user.present? %>
-        <% if @current_user.admin? %>
-          <%= link_to 'ALL USERS', users_path %>
-        <% end %>
-        <%= link_to 'All Camera', '/cameras' %>
-        <%= link_to 'New Camera', new_camera_path %>
-        
-        <%= link_to 'All Reviews', '/rates' %>
-        
-        <%= link_to "Sign Out #{ @current_user.email }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to 'Sign Up', new_user_path %>
-        <%= link_to 'Sign In', login_path %>
-      <% end %>
-    </nav>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" "<%= link_to 'Home', root_path %></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <% if @current_user.present? %>
+                <% if @current_user.admin? %>
+                  <a class="nav-link active" aria-current="page" <%= link_to 'ALL USERS', users_path %></a>
+                <% end %>
+                <a class="nav-link active" aria-current="page" <%= link_to 'All Camera', '/cameras' %></a>
+                <a class="nav-link" <%= link_to 'New Camera', new_camera_path %></a>
+                <a class="nav-link" <%= link_to 'All Reviews', '/rates' %></a>
+                <a class="nav-link active" aria-current="page" <%= link_to 'Sign Out', login_path, :method => 'delete' %></a>
+              <% else %>
+                <a class="nav-link active" aria-current="page" <%= link_to 'Sign Up', new_user_path %></a>
+                <a class="nav-link active" aria-current="page" <%= link_to 'Sign In', login_path %></a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
 
-    <%= yield %>
+
+
+      <% if flash[:message] %>
+        <h1 class="alert alert-info"><%= flash[:message] %></h1>
+      <% end %>
+
+      <% if flash[:loginmessage]%>
+        <h1 class="alert alert-info"><%= flash[:loginmessage] %></h1>
+      <% end %>
+
+      <% if flash[:logoutmessage]%>
+        <h1 class="alert alert-info"><%= flash[:logoutmessage] %></h1>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -52,3 +52,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 gem 'cloudinary'
+
+gem 'bootstrap'
+
+gem 'jquery-rails'

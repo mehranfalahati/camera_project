@@ -1,23 +1,27 @@
 <h1><%= @camera.name %></h1>
 
-<%= cl_image_tag(@camera.image) %>
-    <ul>
-        <li>Name: <%= @camera.name %></li>  
-        <li>Brand: <%= @camera.brand.capitalize %></li>  
-        <li>Details: <%= @camera.details %></li>
-        <li>Price: <%= number_to_currency(@camera.price) %></li>
-    </ul>
+<%= cl_image_tag @camera.image, :class => 'img' %>
 
-<div>
-<% if @current_user.id == @camera.user_id %>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Name: <%= @camera.name %></h5>
+    <h6 class="card-title">Brand: <%= @camera.brand.capitalize %></h6>
+    <h6 class="card-subtitle mb-2 text-muted">Details: <%= @camera.details %></h6>
+    <p class="card-text">Price: <%= number_to_currency(@camera.price) %></p>
+
+    <% if @current_user.id == @camera.user_id %>
     <%= link_to 'Edit', edit_camera_path %>
     <%= link_to 'Delete', @camera, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
     <% end %>
-
+    
+  </div> 
 </div>
 
-<div>
-<% if @camera.rates.present? %>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Comments</h5>
+    <% if @camera.rates.present? %>
     <% @camera.rates.each do |rate|%>
         <%= link_to rate.name, rate %>
         <p><%= rate.comment %></p>
@@ -29,12 +33,9 @@
 
     <% end %>
 <% end %>
-</div>
 
-<div>
+  </div>
+</div>
 <%= link_to 'New Comment', new_rate_path(@camera.id) %>
-</div>
-<div>
+<br>
 <%= link_to 'Back', cameras_path %>
-</div>
-

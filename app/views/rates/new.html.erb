@@ -1,13 +1,16 @@
 <h1>New Comment</h1>
 
 <%= form_for @rate do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
+    <%= f.label :name, :class => "form-label" %>
+    <%= f.text_field :name, :required => true, :class => "form-control form-control-sm" %>
 
-    <%= f.label :comment %>
-    <%= f.text_area :comment, :required => true %>
+    <%= f.label :comment, :class => "form-label" %>
+    <%= f.text_area :comment, :required => true, :class => "form-control form-control-sm" %>
     <%= f.hidden_field :camera_id, value: params[:id] %>
-
-    <%= f.submit "Post Comment" %>
+    
+    <br>
+    <div>
+    <%= f.submit "Post Comment", :class => "btn btn-outline-primary" %>
+    </div>
 
 <% end %>
