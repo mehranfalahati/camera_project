@@ -4,7 +4,7 @@
     <h2>Welcome <%= @current_user.email %></h2>
     <p>
         <% @random.each do |camera|%>
-            <%= camera.name %>
+            <h1><%= camera.name %></h1>
             <%= cl_image_tag(camera.image) %>
         <% end %>
     </p>
