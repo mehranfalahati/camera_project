@@ -1,24 +1,12 @@
-# README
+# Camera house
+This website is reagrding the camera deatils and customer sign up and post or comment on the camera and only the person edit and delete it
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Structure
+As a customer you can sign up on the website and then publish a new camera and then everyone can see it and then comment on it.
 
-Things you may want to cover:
+# Features
+* Sign up and Sign in option
+* Posting a new camera 
+* Commenting and deleting the comment
+* you can visit all reviews 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

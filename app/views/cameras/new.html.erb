@@ -14,8 +14,8 @@
     <%= f.text_area :details, :class => "form-control" %>
 
     <div class="mb-3">
-        <%= f.label :"Please attach you camera's photo" %>
-        <%= f.cl_image_upload :image %>
+        <%= f.label :"Please attach you camera's photo", :class => "form-label" %>
+        <%= f.cl_image_upload :image, :class => "form-control" %>
     </div>
  
     <%= f.submit "Publish Camera", :class => "btn btn-outline-primary" %>
