@@ -17,3 +17,10 @@ As a customer you can sign up on the website and then publish a new camera and t
 # Future
 * Adding reply option for comment by adding a new table
 * Fixing the bugs
+ 
+
+# Link to access
+* https://camera-house.herokuapp.com/
+> you can use details below to access the website without signing up
+- username: jack@ga.co
+- password: chicken
